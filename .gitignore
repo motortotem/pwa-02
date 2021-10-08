@@ -16,6 +16,8 @@ $RECYCLE.BIN/
 *.log
 log.txt
 npm-debug.log*
+localhost_2021-*
+.firebase
 
 /.idea
 /.ionic
