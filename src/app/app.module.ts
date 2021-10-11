@@ -26,4 +26,25 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+
+export class AppModule 
+{
+  constructor()
+  {
+    console.log("*****app.module ya se construyo----")
+    navigator.serviceWorker.ready.then(async(swReg)=>{
+      console.log("--REAYDY!!!!----")
+
+  //    veremos-----
+      self.addEventListener('message',(event) => {
+        if(event.data && event.data.type=='MESSAGE_IDENTIFIER')
+        {
+         console.log("--PRESIONO EL BOTON PARA TARJETA y se respondio desde el WS ----")
+        }
+      })
+   
+      
+   })
+
+  }
+}

@@ -10,7 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 export class FolderPage implements OnInit {
   public folder: string;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute)
+   {
+   }
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
@@ -18,7 +20,12 @@ export class FolderPage implements OnInit {
 
   getCardInit()
   {
-    console.log("PRESIONO EL BOTON PARA TARJETA")
+    console.log("MANDANDO MENSAJE AL SW")
+
+    navigator.serviceWorker.controller.postMessage({
+      type: 'MESSAGE_IDENTIFIER',
+    });
+
   }
 
 }
